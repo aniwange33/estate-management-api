@@ -1,5 +1,4 @@
 package com.amos.tenant.management.usecases.Imp;
-
 import com.amos.tenant.management.domain.BlockDomain;
 import com.amos.tenant.management.domain.gateway.BlockDomainGateway;
 import com.amos.tenant.management.domain.models.CreateABlockRequestDomain;
@@ -9,8 +8,6 @@ import com.amos.tenant.management.usecases.exceptions.GenericInputErrorException
 import com.amos.tenant.management.usecases.models.CreateBlockRequest;
 import com.amos.tenant.management.usecases.models.CreateBlockResponse;
 import com.amos.tenant.management.usecases.models.RetrievedAllBlocksResponse;
-
-import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
 import java.util.Optional;
@@ -20,7 +17,6 @@ import java.util.stream.Collectors;
 public class CreateAndRetrievedAllBlockImpl  implements CreateAndRetrievedAllBlock {
     private final BlockDomainGateway blockDomainGateway;
 
-    @Inject
     public CreateAndRetrievedAllBlockImpl(BlockDomainGateway blockDomainGateway) {
         this.blockDomainGateway = blockDomainGateway;
     }

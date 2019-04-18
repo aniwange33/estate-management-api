@@ -1,15 +1,15 @@
 package com.amos.tenant.management.domain;
 
-import com.amos.tenant.management.domain.models.TenantName;
+import com.amos.tenant.management.domain.models.Name;
 import lombok.Data;
 
 @Data
 public class TenantDomain {
-    TenantName name;
+    Name name;
     String phoneNumber;
     //open to extension but close for modification
 
-    public TenantDomain(TenantName name, String phoneNumber) {
+    public TenantDomain(Name name, String phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
     }

@@ -28,12 +28,12 @@ public class EstateController {
 
     @PostMapping(value = "/createEaste")
     @ResponseBody
-    private CreateEstateReponseJSON createEstate(@Valid  @RequestBody CreateEstateRequestJSON createEstateRequestJSON) throws GenericInputErrorException {
+    private CreateEstateReponseJSON createEstate(@RequestHeader("Authorization") String authorization, @Valid  @RequestBody CreateEstateRequestJSON createEstateRequestJSON) throws GenericInputErrorException {
           CreateEstateResponse createEstateResponse = createAndRetrievedAllEstate.createAnEstate(createEstateRequestJSON.getCreateEstateRequest());
           return  new CreateEstateReponseJSON(createEstateResponse);
     }
     @GetMapping(value = "/view")
-    private List<AvailableEstateReponseJSON> viewAllEstate(){
+    private List<AvailableEstateReponseJSON> viewAllEstate(@RequestHeader("Authorization") String authorization){
         return createAndRetrievedAllEstate.retrievedAllEstateRequest().stream().map(a->new AvailableEstateReponseJSON(a.getId(),a.getName(),a.getCreatedDate(),new AddressJSON(a.getAddress().getCity(),a.getAddress().getPlot(),a.getAddress().getStreet(),a.getAddress().getTown()))).collect(Collectors.toList());
     }
 

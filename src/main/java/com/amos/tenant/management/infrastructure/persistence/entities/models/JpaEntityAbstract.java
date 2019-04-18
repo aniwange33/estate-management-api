@@ -14,7 +14,6 @@ import java.util.Objects;
 @MappedSuperclass
 @Getter
 @Setter
-//@EqualsAndHashCode
 public  abstract class JpaEntityAbstract<T> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
