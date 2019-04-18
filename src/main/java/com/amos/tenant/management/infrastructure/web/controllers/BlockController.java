@@ -29,12 +29,10 @@ public class BlockController {
     @ResponseBody
     CreateBlockResponseJSON creatBlock(@RequestHeader("Authorization") String authorization, @Valid @RequestBody CreateBlockRequestJSON createBlockRequestJSON) throws GenericInputErrorException {
         CreateBlockResponse createBlockResponse= createAndRetrievedAllBlock.createABlock(createBlockRequestJSON.getCreateBlockRequest());
-        System.err.println("hello----3");
         return new CreateBlockResponseJSON(createBlockResponse.getId(),createBlockResponse.getName(),createBlockResponse.getDate());
     }
     @GetMapping(value = "/view/blocks")
     List<AvailableBlockResponseJSON> getAllBlocks(@RequestHeader("Authorization") String authorization){
-        System.err.println("hello----3");
         return createAndRetrievedAllBlock.retrievedAllBlocks().stream().
                 map(a-> new AvailableBlockResponseJSON(a.getId(),a.getName(),a.getNumberOfFlats())).collect(Collectors.toList());
     }

@@ -10,5 +10,5 @@ public class LoginResponse {
     private String refresh_token;
     private Integer expires_in;
     private String scope;
-    private AccountDbEntity account;
+    private AccountDbEntity user;
 }

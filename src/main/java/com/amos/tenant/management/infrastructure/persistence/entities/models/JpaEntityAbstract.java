@@ -1,5 +1,6 @@
 package com.amos.tenant.management.infrastructure.persistence.entities.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
@@ -19,6 +20,7 @@ public  abstract class JpaEntityAbstract<T> {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private T id;
 
+    @JsonIgnore
     @CreatedDate
     private LocalDate createdDate;
 

@@ -22,18 +22,20 @@ public class AccountDbEntity extends JpaEntityAbstract<Long> {
     private Role role;
     private String password;
     @Column(name = "phone_number")
-    private Long     phonenumber;
-    private String    verificationcode;
-    private LocalDate modifieddate;
+    private String     phoneNumber;
+    @Column(name = "verification_code")
+    private String    verificationCode;
+    @Column(name = "modified_date")
+    private LocalDate modifiedDate;
     @ManyToOne
     @JoinColumn(name = "privilege_id")
     PrivilegeDbEntity  privilege;
-    public AccountDbEntity(Name name,  Role role,String email, String password, Long phonenumber,  PrivilegeDbEntity privilege) {
+    public AccountDbEntity(Name name,  Role role,String email, String password, String phonenumber,  PrivilegeDbEntity privilege) {
         this.name = name;
         this.email = email;
         this.role = role;
         this.password = password;
-        this.phonenumber = phonenumber;
+        this.phoneNumber = phonenumber;
         this.privilege = privilege;
     }
 }
